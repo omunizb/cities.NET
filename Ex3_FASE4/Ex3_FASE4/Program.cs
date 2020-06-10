@@ -7,19 +7,23 @@ namespace Ex3_FASE4
     class Program
     {
         
-        static void InvertPrint(string city, char[] arrCity)
+        static char[] CharArray(string city)
         {
-            int counter = 0;
+            char[] cityLetters = new char[city.Length];
 
-            foreach (char letter in city)
+            for (int i = 0; i < city.Length; i++)
             {
-                arrCity[counter] = letter;
-                counter++;
+                cityLetters[i] = city[i];
             }
 
-            for (int i = arrCity.Length - 1; i >= 0; i--)
+            return cityLetters;
+        }
+
+        static void InvertPrint(char[] city)
+        {
+            for (int i = city.Length - 1; i >= 0; i--)
             {
-                Console.Write(arrCity[i]);
+                Console.Write(city[i]);
             }
 
             Console.Write(Environment.NewLine);
@@ -27,32 +31,21 @@ namespace Ex3_FASE4
 
         static void Main(string[] args)
         {
-            string city1, city2, city3, city4, city5, city6;
+            string[] arrCities = new string[6];
 
             Console.WriteLine("Write the name of six cities:");
 
-            city1 = Console.ReadLine();
-            city2 = Console.ReadLine();
-            city3 = Console.ReadLine();
-            city4 = Console.ReadLine();
-            city5 = Console.ReadLine();
-            city6 = Console.ReadLine();
+            for (int i = 0; i < arrCities.Length; i++)
+            {
+                arrCities[i] = Console.ReadLine();
+            }
 
-            char[] arrCity1 = new char[city1.Length];
-            char[] arrCity2 = new char[city2.Length];
-            char[] arrCity3 = new char[city3.Length];
-            char[] arrCity4 = new char[city4.Length];
-            char[] arrCity5 = new char[city5.Length];
-            char[] arrCity6 = new char[city6.Length];
+            Console.WriteLine("These are the cities you have chosen, inverted:");
 
-            Console.WriteLine("These are the inverted cities you have chosen:");
-
-            InvertPrint(city1, arrCity1);
-            InvertPrint(city2, arrCity2);
-            InvertPrint(city3, arrCity3);
-            InvertPrint(city4, arrCity4);
-            InvertPrint(city5, arrCity5);
-            InvertPrint(city6, arrCity6);
+            for (int i = 0; i < arrCities.Length; i++)
+            {
+                InvertPrint(CharArray(arrCities[i]));
+            }
         }
     }
 }

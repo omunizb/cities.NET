@@ -9,27 +9,28 @@ city4 = prompt("Fourth city:", "Malaga");
 city5 = prompt("Fifth city:", "Cadiz");
 city6 = prompt("Sixth city:", "Santander");
 
-var arrCity1 = [], arrCity2 = [], arrCity3 = [], arrCity4 = [], arrCity5 = [], arrCity6 = [];
+var arrCities = [city1, city2, city3, city4, city5, city6];
 
-function InvertPrint(city, arrCity) {
-    var counter = 0; 
-    for (let i = city.length - 1; i >= 0; i--) {
-        arrCity[counter] = city.charAt(i);
-        counter++;
+function CharArray(item) {
+    var arrItem = [];
+
+    for (let i = 0; i < item.length; i++) {
+        arrItem[i] = item.charAt(i);
     }
-    
+
+    return arrItem;
+}
+
+function InvertPrint(arrItem) {
     var inverted = "";
-    for (let i = 0; i < arrCity.length; i++) {
-        inverted += arrCity[i];
+    for (let i = arrItem.length - 1; i >= 0; i--) {
+        inverted += arrItem[i];
     }
     console.log(inverted);
 }
 
-console.log("These are the inverted cities you have chosen:");
+console.log("These are the cities you have chosen, inverted:");
 
-InvertPrint(city1, arrCity1);
-InvertPrint(city2, arrCity2);
-InvertPrint(city3, arrCity3);
-InvertPrint(city4, arrCity4);
-InvertPrint(city5, arrCity5);
-InvertPrint(city6, arrCity6);
+arrCities.forEach(function(city) {
+    InvertPrint(CharArray(city));
+});

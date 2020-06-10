@@ -8,18 +8,14 @@ namespace Ex3_FASE3
     {
         static void Main(string[] args)
         {
-            string city1, city2, city3, city4, city5, city6;
+            string[] arrModCities = new string[6];
 
             Console.WriteLine("Write the name of six cities:");
 
-            city1 = Console.ReadLine().Replace('a', '4').Replace('A', '4');
-            city2 = Console.ReadLine().Replace('a', '4').Replace('A', '4');
-            city3 = Console.ReadLine().Replace('a', '4').Replace('A', '4');
-            city4 = Console.ReadLine().Replace('a', '4').Replace('A', '4');
-            city5 = Console.ReadLine().Replace('a', '4').Replace('A', '4');
-            city6 = Console.ReadLine().Replace('a', '4').Replace('A', '4');
-
-            string[] arrModCities = { city1, city2, city3, city4, city5, city6 };
+            for (int i = 0; i < arrModCities.Length; i++)
+            {
+                arrModCities[i] = Console.ReadLine().Replace('a', '4').Replace('A', '4');
+            }
 
             Array.Sort(arrModCities);
 
